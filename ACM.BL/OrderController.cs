@@ -39,7 +39,6 @@ namespace ACM.BL
 
             if (emailReceipt)
             {
-                string message;
                 var result = customer.ValidateEmail();
                 if (result.Success)
                 {
