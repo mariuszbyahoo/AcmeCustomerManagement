@@ -28,15 +28,15 @@ namespace AcmeCustomerManagement
             var order = new Order();
             // Populate the order instance
 
-            var allowSplitOrders = true;
-            var emailReceipt = true;
-
             var payment = new Payment();
             // Populate the payment info from the UI
 
             var orderController = new OrderController();
 
-            orderController.PlaceOrder(customer, order, payment, emailReceipt, allowSplitOrders);
+            orderController.PlaceOrder(customer, order, payment, 
+                                                allowSplitOrders : false, 
+                                                emailReceipt: true);
+            // Above we see a Named method's arguments
         }
 
         public OrderWin()
