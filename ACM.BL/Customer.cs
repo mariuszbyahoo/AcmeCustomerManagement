@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +15,35 @@ namespace ACM.BL
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public void ValidateEmail()
+        public OperationResult ValidateEmail()
         {
-            if (string.IsNullOrWhiteSpace(this.EmailAdress)) throw new ArgumentException("Email adress is null");
+            var op = new OperationResult();
 
-            var isValidFormat = true;
-            // Code here that validates the format of the email
-            // using Regular Expressions
-            if (!isValidFormat) throw new ArgumentException("Email is in invalid format");
-
-            var isRealDomain = true;
-            // Code here that confirms whether domain exists
-            if (!isRealDomain) throw new ArgumentException("Such domain don't exists");
+            if (string.IsNullOrWhiteSpace(this.EmailAdress))
+            {
+                op.Success = false;
+                op.AddMessage("Email adress is null");
+            }
+            if (op.Success)
+            {
+                var isValidFormat = true;
+                // Code here that validates the format of the email
+                // using Regular Expressions
+                if (!isValidFormat)
+                {
+                    op.Success = false;
+                    op.AddMessage("Email adress is in incorrect format");
+                }
+                var isRealDomain = true;
+                // Code here that confirms whether domain exists
+                if (!isRealDomain)
+                {
+                    op.Success = false;
+                    op.AddMessage("Email adress has invalid domain");
+                }
+            }
+            
+            return op;
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
