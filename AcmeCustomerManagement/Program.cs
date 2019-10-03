@@ -16,7 +16,7 @@ namespace AcmeCustomerManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderWin());
+            Application.Run(new PedometerWin());
         }
     }
 }
