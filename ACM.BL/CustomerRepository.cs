@@ -8,5 +8,16 @@ namespace ACM.BL
 {
     public class CustomerRepository
     {
+        public void Add(Customer customer)
+        {
+
+        }
+
+        public void Update()
+        {
+            // Open a connection
+            //Set stored procedure params with the customer data
+            // Call the save stored procedure
+        }
     }
 }

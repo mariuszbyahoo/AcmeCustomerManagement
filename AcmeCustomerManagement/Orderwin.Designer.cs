@@ -1,4 +1,6 @@
-﻿namespace AcmeCustomerManagement
+﻿using System;
+
+namespace AcmeCustomerManagement
 {
     partial class OrderWin
     {

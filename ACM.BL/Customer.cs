@@ -14,5 +14,13 @@ namespace ACM.BL
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public void ValidateEmail()
+        {
+            //if the user requested a receipt
+            //get the customer data
+            //Ensure a valid email adress was provided
+            //If not,
+            // request an email from the user.
+        }
     }
 }
