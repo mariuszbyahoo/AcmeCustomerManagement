@@ -54,5 +54,11 @@ namespace ACM.BLTests
             //--Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void CalculatePercentOfGoalStepsTest()
+        {
+            Assert.Fail();
+        }
     }
 }
