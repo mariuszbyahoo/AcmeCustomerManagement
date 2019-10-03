@@ -55,10 +55,44 @@ namespace ACM.BLTests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod()]
-        public void CalculatePercentOfGoalStepsTest()
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculatePercentOfGoalStepsTestGoalIsNull()
         {
-            Assert.Fail();
+            //-- Arrange
+            var customer = new Customer();
+            string goalSteps = null;
+            string actualSteps = "2000";
+
+            //--Act
+            var actual = customer.CalculatePercentOfGoalSteps(goalSteps, actualSteps);
+
+            //--Assert
+            // We don't need any Assertion because of that what the mstest will automatically 
+            // return pass if an exception because of the "ExpectedException" clause above occurs.
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculatePercentOfGoalStepsTestGoalIsNotNumeric()
+        {
+            //-- Arrange
+            var customer = new Customer();
+            string goalSteps = "one";
+            string actualSteps = "2000";
+
+            //--Act
+            try
+            {
+                var actual = customer.CalculatePercentOfGoalSteps(goalSteps, actualSteps);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Goal must be numeric", ex.Message);
+                throw;
+            }
+
+            //--Assert
         }
     }
 }
