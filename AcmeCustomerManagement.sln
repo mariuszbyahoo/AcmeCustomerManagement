@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.BL", "ACM.BL\ACM.BL.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common", "Core.Common\Core.Common.csproj", "{02CF34D2-90B8-431B-9876-C5C892308989}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Projects", "Test Projects", "{823831A0-303C-4490-95E7-A9BA961B9B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.BLTests", "ACM.BLTests\ACM.BLTests.csproj", "{D1255025-D503-4C21-95D5-EE8B03AC56E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{02CF34D2-90B8-431B-9876-C5C892308989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02CF34D2-90B8-431B-9876-C5C892308989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02CF34D2-90B8-431B-9876-C5C892308989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1255025-D503-4C21-95D5-EE8B03AC56E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1255025-D503-4C21-95D5-EE8B03AC56E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1255025-D503-4C21-95D5-EE8B03AC56E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1255025-D503-4C21-95D5-EE8B03AC56E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1255025-D503-4C21-95D5-EE8B03AC56E3} = {823831A0-303C-4490-95E7-A9BA961B9B2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03C6F8FE-7347-40F9-B3A9-AE60D4EA4803}
