@@ -14,25 +14,18 @@ namespace ACM.BL
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public Boolean ValidateEmail()
+        public void ValidateEmail()
         {
-            var valid = true;
-
-            if (string.IsNullOrWhiteSpace(this.EmailAdress))
-                valid = false;
+            if (string.IsNullOrWhiteSpace(this.EmailAdress)) throw new ArgumentException("Email adress is null");
 
             var isValidFormat = true;
             // Code here that validates the format of the email
             // using Regular Expressions
-            if (!isValidFormat)
-                valid = false;
+            if (!isValidFormat) throw new ArgumentException("Email is in invalid format");
 
             var isRealDomain = true;
             // Code here that confirms whether domain exists
-            if (!isRealDomain)
-                valid = false;
-
-            return valid;
+            if (!isRealDomain) throw new ArgumentException("Such domain don't exists");
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)

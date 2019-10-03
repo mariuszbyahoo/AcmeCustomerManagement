@@ -39,7 +39,8 @@ namespace ACM.BL
 
             if (emailReceipt)
             {
-                if (customer.ValidateEmail())
+                var isValid = customer.ValidateEmail();
+                if (isValid)
                 {
                     customerRepository.Update();
 
