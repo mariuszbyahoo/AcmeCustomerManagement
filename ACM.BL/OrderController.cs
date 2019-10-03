@@ -39,11 +39,13 @@ namespace ACM.BL
 
             if (emailReceipt)
             {
-                customer.ValidateEmail();
-                customerRepository.Update();
+                if (customer.ValidateEmail())
+                {
+                    customerRepository.Update();
 
-                emailLibrary.SendEmail(customer.EmailAdress,
-                    "Here is your receipt");
+                    emailLibrary.SendEmail(customer.EmailAdress,
+                        "Here is your receipt");
+                }
             }
         }
     }
