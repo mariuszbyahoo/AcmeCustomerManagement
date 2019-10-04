@@ -20,13 +20,19 @@ namespace AcmeCustomerManagement
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            // Below we have the throw statement which gets an "unexpected" earlier error.
-            throw new ExecutionEngineException("shfiauhewhfiuahe");
-            //var customer = new Customer();
-            //var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,
-            //                                                    this.StepsTextBox.Text);
-            //ResultLabel.Text = "You reached " + result + "% of your goal!";
+            var customer = new Customer();
 
+            try
+            {
+                var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,
+                                                                this.StepsTextBox.Text);
+                ResultLabel.Text = "You reached " + result + "% of your goal!";
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Your entry was not valid: " + ex.Message);
+                ResultLabel.Text = string.Empty;
+            }
         }
     }
 }

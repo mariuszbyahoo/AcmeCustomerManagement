@@ -11,6 +11,17 @@ namespace Core.Common
         public void SendEmail(string emailAdress, string v)
         {
             // If a valid email adress is provided, 
+
+            try
+            {
+                // Send an email
+            }
+            catch (InvalidOperationException ex)
+            {
+                // log
+                throw;
+            }
+
             // Send an email.
         }
     }
