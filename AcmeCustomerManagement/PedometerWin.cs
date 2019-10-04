@@ -20,10 +20,12 @@ namespace AcmeCustomerManagement
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            var customer = new Customer();
-            var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,
-                                                                this.StepsTextBox.Text);
-            ResultLabel.Text = "You reached " + result + "% of your goal!";
+            // Below we have the throw statement which gets an "unexpected" earlier error.
+            throw new ExecutionEngineException("shfiauhewhfiuahe");
+            //var customer = new Customer();
+            //var result = customer.CalculatePercentOfGoalSteps(this.GoalTextBox.Text,
+            //                                                    this.StepsTextBox.Text);
+            //ResultLabel.Text = "You reached " + result + "% of your goal!";
 
         }
     }
