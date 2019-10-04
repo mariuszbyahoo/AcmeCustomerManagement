@@ -47,6 +47,10 @@ namespace ACM.BL
                     emailLibrary.SendEmail(customer.EmailAdress,
                         "Here is your receipt");
                 }
+                else
+                {
+                    // log the error messages
+                }
             }
         }
     }
