@@ -23,12 +23,21 @@ namespace ACM.BL
 
         }
 
-        public void PlaceOrder(Customer customer, 
+        public OperationResult PlaceOrder(Customer customer, 
                                 Order order, 
                                 Payment payment,
                                 bool allowSplitOrders, 
                                 bool emailReceipt)
         {
+            //Validating parameters:
+            if (customer == null) throw new ArgumentNullException("Customer instance is null");
+            if (order == null) throw new ArgumentNullException("Order instance is null");
+            if (payment == null) throw new ArgumentNullException("Payment instance is null");
+            // The rest of parameters are not reference values, but structs, so they 
+            // may be only bool. There is no need to validate them.
+            var op = new OperationResult();
+
+            // Processing the method's logic:
             customerRepository.Add(customer);
 
             orderRepository.Add(order);
@@ -50,8 +59,16 @@ namespace ACM.BL
                 else
                 {
                     // log the error messages
+
+                    // returning the result's message.
+                    if (result.MessageList.Any())
+                    {
+                        op.AddMessage(result.MessageList[0]);
+                    }
                 }
             }
+
+            return op;
         }
     }
 }
