@@ -1,6 +1,7 @@
 ﻿using Core.Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ACM.BL
 
         public OrderController()
         {
-            customerRepository = new CustomerRepository();
+            //customerRepository = new CustomerRepository();
             orderRepository = new OrderRepository();
             inventoryRepository = new InventoryRepository();
             emailLibrary = new EmailLibrary();
@@ -29,6 +30,16 @@ namespace ACM.BL
                                 bool allowSplitOrders, 
                                 bool emailReceipt)
         {
+       /*!!! Assert, sets you upfront that certain conditions must be met before program 
+             execution continues, and if those conditions are not met, the program will abort,
+             and end in the debugger, right at that spot. !!! */
+            Debug.Assert(customerRepository != null, "Missing customer repository"); 
+// this one above fails, because of commenting the init of one of the class's props in ctor
+            Debug.Assert(orderRepository != null, "Missing order repository");
+            Debug.Assert(inventoryRepository != null, "Missing inventory repository");
+            Debug.Assert(emailLibrary != null, "Missing email library");
+
+
             //Validating parameters:
             if (customer == null) throw new ArgumentNullException("Customer instance is null");
             if (order == null) throw new ArgumentNullException("Order instance is null");
